@@ -112,6 +112,8 @@ public class App {
             printUsage(UsageType.WRITE);
             return;
         }
+
+        System.out.println("This feature is not yet implemented.");
     }
 
     private static void handleC(String[] args) {
@@ -119,6 +121,8 @@ public class App {
             printUsage(UsageType.COMPARE);
             return;
         }
+
+        System.out.println("This feature is not yet implemented.");
     }
 
     /****************************************************************/
