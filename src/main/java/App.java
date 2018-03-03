@@ -61,6 +61,18 @@ public class App {
             printUsage(UsageType.SINGLE);
             return;
         }
+
+        MessageThread thread;
+
+        try {
+            thread = new MessageThread(args[1]);
+        }
+        catch(IllegalArgumentException iae) {
+            System.out.println(iae);
+            return;
+        }
+
+        Writer.genSingle(thread, "testing.html");
     }
 
     private static void handleW(String[] args) {

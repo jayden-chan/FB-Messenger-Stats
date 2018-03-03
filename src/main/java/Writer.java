@@ -29,15 +29,22 @@ public class Writer {
             String toWrite = fileToString("assets/SingleThreadTemplate.html", StandardCharsets.UTF_8);
 
             toWrite = toWrite.replaceAll("TITLE", thread.getTitle());
-            toWrite = toWrite.replaceAll("USR1", thread.getUser());
-            toWrite = toWrite.replaceAll("USR2", partner);
-            toWrite = toWrite.replaceAll("DAYS", "test");
-            toWrite = toWrite.replaceAll("MESS", String.valueOf(thread.getWordCount()));
-            toWrite = toWrite.replaceAll("123", String.valueOf(byUser));
-            toWrite = toWrite.replaceAll("234", String.valueOf(byPartner));
-            toWrite = toWrite.replaceAll("WRDS", String.valueOf(thread.getWordCount()));
-            toWrite = toWrite.replaceAll("WSPM", String.format("%-2.2f", thread.getWordsPerMessage()));
-            toWrite = toWrite.replaceAll("CHPM", String.format("%-2.2f", thread.getCharsPerMessage()));
+            toWrite = toWrite.replaceAll("USR1" , thread.getUser());
+            toWrite = toWrite.replaceAll("USR2" , partner);
+            toWrite = toWrite.replaceAll("DAYS" , "test");
+            toWrite = toWrite.replaceAll("MESS" , String.valueOf(thread.getTotalMessages()));
+            toWrite = toWrite.replaceAll("123"  , String.valueOf(byUser));
+            toWrite = toWrite.replaceAll("234"  , String.valueOf(byPartner));
+            toWrite = toWrite.replaceAll("WRDS" , String.valueOf(thread.getWordCount()));
+            toWrite = toWrite.replaceAll("WSPM" , String.format("%-2.2f", thread.getWordsPerMessage()));
+            toWrite = toWrite.replaceAll("CHPM" , String.format("%-2.2f", thread.getCharsPerMessage()));
+
+            StringBuilder sb = new StringBuilder(toWrite);
+            String user1ToAdd = "['" + thread.getUser() + "', " + String.valueOf(byUser) + "],\n";
+            String user2ToAdd = "['" + partner + "', " + String.valueOf(byPartner) + "],\n";
+            sb.insert(357, user1ToAdd);
+            sb.insert(357 + user1ToAdd.length(), user2ToAdd);
+            toWrite = sb.toString();
 
             FileWriter pw = new FileWriter(new File("out/"+fileName));
             pw.write(toWrite);
