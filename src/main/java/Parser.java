@@ -59,6 +59,26 @@ public class Parser {
         return participants;
     }
 
+    public HashMap<String, Integer> getMessageMap() {
+        return messageMap;
+    }
+
+    public int getTotalMessages() {
+        return totalMessages;
+    }
+
+    public int getWordCount() {
+        return wordCount;
+    }
+
+    public double getWordsPerMessage() {
+        return wordsPerMessage;
+    }
+
+    public double getCharsPerMessage() {
+        return charsPerMessage;
+    }
+
 /****************************************************************/
 /*                    Private helper methods                    */
 /****************************************************************/
