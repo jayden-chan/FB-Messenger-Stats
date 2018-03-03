@@ -15,10 +15,48 @@ public class App {
     }
 
     public static void main(String[] args) {
-        if(args.length == 0) {
+        if(args.length == 0 || args[0].equals("--help")) {
             printUsage(UsageType.ALL);
         }
+
+        switch(args[0]) {
+            case "-p":
+                handleP(args);
+                break;
+            case "-s":
+                handleS(args);
+                break;
+            case "-w":
+                handleW(args);
+                break;
+            case "-c":
+                handleC(args);
+                break;
+            default:
+                printUsage(UsageType.ALL);
+                break;
+        }
     }
+
+    private static void handleP(String[] args) {
+
+    }
+
+    private static void handleS(String[] args) {
+
+    }
+
+    private static void handleW(String[] args) {
+
+    }
+
+    private static void handleC(String[] args) {
+
+    }
+
+    /****************************************************************/
+    /*                        Helper methods                        */
+    /****************************************************************/
 
     private static void printUsage(UsageType type) {
         StringBuilder sb = new StringBuilder();

@@ -17,6 +17,13 @@ plugins {
 // Define the main class for the application
 mainClassName = 'App'
 
+// Take command line arguments
+run {
+    if(project.hasProperty('mArgs')) {
+        args(mArgs.split(','));
+    }
+}
+
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:23.0'
