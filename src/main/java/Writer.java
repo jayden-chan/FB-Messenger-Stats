@@ -7,11 +7,11 @@
  */
 
 public class Writer {
-    public static genSingle() {
+    public static void genSingle(MessageThread thread) {
 
     }
 
-    public static genGroup() {
+    public static void genGroup(MessageThread thread) {
 
     }
 }

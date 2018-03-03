@@ -12,7 +12,7 @@ import java.util.regex.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class Parser {
+public class MessageThread {
 
     private String threadString;
     private String title;
@@ -27,7 +27,7 @@ public class Parser {
     private double wordsPerMessage;
     private double charsPerMessage;
 
-    public Parser(String fileName) {
+    public MessageThread(String fileName) {
         String threadStringTemp = parseThreadToString(fileName);
         threadString            = threadStringTemp.replaceAll("&#039;", "'");
         threadString            = threadStringTemp.replaceAll("&quot;", "\"");
@@ -59,7 +59,7 @@ public class Parser {
         return participants;
     }
 
-    public HashMap<String, Integer> getMessageMap() {
+    public Map<String, Integer> getMessageMap() {
         return messageMap;
     }
 

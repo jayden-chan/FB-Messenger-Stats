@@ -44,10 +44,10 @@ public class App {
             return;
         }
 
-        Parser thread;
+        MessageThread thread;
 
         try {
-            thread = new Parser(args[1]);
+            thread = new MessageThread(args[1]);
             System.out.println(thread);
         }
         catch(IllegalArgumentException iae) {
