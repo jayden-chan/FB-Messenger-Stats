@@ -18,12 +18,32 @@ public class Parser {
 
     private String threadString;
     private String title;
+    private String user;
     private ArrayList<String> participants;
+
+    private int totalMessages;
 
     public Parser(String fileName) {
         threadString = parseThreadToString(fileName).replaceAll("&#039;", "'");
-        title = parseTitle();
+        title        = parseTitle();
         participants = parseParticipants();
+        user         = parseUser();
+    }
+
+    /****************************************************************/
+    /*                        Getter methods                        */
+    /****************************************************************/
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public ArrayList<String> getParticipants() {
+        return participants;
     }
 
     /****************************************************************/
@@ -87,7 +107,27 @@ public class Parser {
             toReturn = new ArrayList<String>(Arrays.asList(result.split(",")));
         }
 
+        for(int i = 0; i < toReturn.size(); i++) {
+            String current = toReturn.get(i);
+            toReturn.remove(i);
+            toReturn.add(i, current.trim());
+        }
+
         return toReturn;
+    }
+
+    private String parseUser() {
+        Pattern senderPattern = Pattern.compile("(?<=\"user\">)(.*?)(?=<)");
+        Matcher senderMatcher = senderPattern.matcher(threadString);
+
+        while(senderMatcher.find()) {
+            String current = senderMatcher.group();
+            if(!participants.contains(current)) {
+                return current;
+            }
+        }
+
+        return null;
     }
 
     /****************************************************************/
@@ -99,15 +139,15 @@ public class Parser {
         StringBuilder sb = new StringBuilder();
         sb.append("Title: ");
         sb.append(title+"\n");
-        sb.append("Participants: ");
+        sb.append("Self: " + user);
+        sb.append("\nParticipants: ");
 
         for(String p : participants) {
             sb.append(p);
-            sb.append(",");
+            sb.append(", ");
         }
 
-        sb.deleteCharAt(sb.length() - 1);
-
+        sb.setLength(sb.length() - 2);
         return sb.toString();
     }
 }

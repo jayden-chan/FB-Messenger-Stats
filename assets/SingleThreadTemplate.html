@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Total Messages'],
+            ['USR1', 123],
+        ]);
+
+        var options={title:'Message Breakdown', pieHole: 0.5};
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Messages'],
+          ['DATE', 17],
+        ]);
+
+        var options = {
+            title: 'Timeline',
+            bar: {
+                groupWidth: 100,
+            }
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_material'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Messages'],
+          ['DATE', 10],
+        ]);
+
+        var options = {
+            title: 'Frequency by time of day',
+            bar: {
+                groupWidth: 100,
+            }
+        };
+
+        var chart2 = new google.visualization.ColumnChart(document.getElementById('columnchart_material2'));
+
+        chart2.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Messages'],
+          ['DATE', 10],
+        ]);
+
+        var options = {
+            title: 'Frequency by day of week',
+            bar: {
+                groupWidth: 100,
+            }
+        };
+
+        var chart3 = new google.visualization.ColumnChart(document.getElementById('columnchart_material3'));
+
+        chart3.draw(data, options);
+      }
+    </script>
+    <title>Conversation Statistics</title>
+  </head>
+  <body>
+    <h1 style="font-family:'arial'; text-align:center; margin-bottom: 50px; margin-top:20px">TITLE</h1>
+    <h2 style="font-family:'arial'; width: 800px; margin:auto; padding: 0px 0px 5px 0px ">Totals</h2>
+    <hr style="width:1000px;">
+    <div style="font-family:'arial'; margin:auto; width:800px; padding: 0px 0px 25px 0px; text-align:center;">
+    <table style="width:800px; text-align:center; font-size:18px" cellpadding="5">
+        <tr>
+            <td>DAYS</td>
+            <td>MESS</td>
+            <td>WRDS</td>
+        </tr>
+        <tr>
+            <th>Days</th>
+            <th>Messages</th>
+            <th>Words</th>
+        </tr>
+    </table>
+    </div>
+    <h2 style="font-family:'arial'; width: 800px; margin:auto; padding: 0px 0px 5px 0px ">Averages</h2>
+    <hr style="width:1000px;">
+    <div style="font-family:'arial'; margin:auto; width:800px; padding: 0px 0px 25px 0px; text-align:center;">
+    <table style="width:800px; text-align:center; font-size:18px" cellpadding="5">
+        <tr>
+            <td>WSPM</td>
+            <td>CHPM</td>
+            <td>MSPD</td>
+        </tr>
+        <tr>
+            <th>Words per message</th>
+            <th>Characters per message</th>
+            <th>Messages per day</th>
+        </tr>
+    </table>
+    </div>
+
+    <div id="piechart" style="width: 800px; height: 500px; margin:auto; padding:0px 0px 0px 145px; border: 2px solid white"></div>
+    <div id="columnchart_material" style="width: 800px; height: 500px; margin:auto; padding:0px 0px 0px 40px; border: 2px solid white"></div>
+    <div id="columnchart_material2" style="width: 800px; height: 500px; margin:auto; padding:0px 0px 0px 40px; border: 2px solid white"></div>
+    <div id="columnchart_material3" style="width: 800px; height: 500px; margin:auto; padding:0px 0px 0px 40px; border: 2px solid white"></div>
+  </body>
+</html>
