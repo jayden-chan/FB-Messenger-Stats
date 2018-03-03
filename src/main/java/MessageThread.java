@@ -252,8 +252,8 @@ public class MessageThread {
         sb.append(String.format(" (%-3.1f%%)\n\n", ((double)messageMap.get(user) / (double)totalMessages) * 100));
         sb.append("Total messages:    " + totalMessages + "\n");
         sb.append("Total words:       " + wordCount + "\n");
-        sb.append("Words per message: " + wordsPerMessage + "\n");
-        sb.append("Chars per message: " + charsPerMessage + "\n");
+        sb.append("Words per message: " + String.format("%-1.2f", wordsPerMessage) + "\n");
+        sb.append("Chars per message: " + String.format("%-1.2f", charsPerMessage) + "\n");
 
         return sb.toString();
     }
