@@ -44,6 +44,16 @@ public class App {
             return;
         }
 
+        Parser thread;
+
+        try {
+            thread = new Parser(args[1]);
+            System.out.println(thread);
+        }
+        catch(IllegalArgumentException iae) {
+            System.out.println(iae);
+            return;
+        }
     }
 
     private static void handleS(String[] args) {
@@ -51,7 +61,6 @@ public class App {
             printUsage(UsageType.SINGLE);
             return;
         }
-
     }
 
     private static void handleW(String[] args) {
@@ -59,7 +68,6 @@ public class App {
             printUsage(UsageType.WRITE);
             return;
         }
-
     }
 
     private static void handleC(String[] args) {
@@ -67,7 +75,6 @@ public class App {
             printUsage(UsageType.COMPARE);
             return;
         }
-
     }
 
     /****************************************************************/
