@@ -39,18 +39,34 @@ public class App {
     }
 
     private static void handleP(String[] args) {
+        if(args.length < 2) {
+            printUsage(UsageType.PRINT);
+            return;
+        }
 
     }
 
     private static void handleS(String[] args) {
+        if(args.length < 2) {
+            printUsage(UsageType.SINGLE);
+            return;
+        }
 
     }
 
     private static void handleW(String[] args) {
+        if(args.length < 3) {
+            printUsage(UsageType.WRITE);
+            return;
+        }
 
     }
 
     private static void handleC(String[] args) {
+        if(args.length < 3) {
+            printUsage(UsageType.COMPARE);
+            return;
+        }
 
     }
 
