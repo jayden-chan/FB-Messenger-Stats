@@ -1,6 +1,7 @@
 /**
  * @author Jayden Chan
  * @version 1.0
+ * Date Created: March 2, 2018
  *
  * Main entry point for the program. Simply handles the command line arguments.
  */
@@ -125,9 +126,9 @@ public class App {
         System.out.println("This feature is not yet implemented.");
     }
 
-    /****************************************************************/
-    /*                        Helper methods                        */
-    /****************************************************************/
+/****************************************************************/
+/*                        Helper methods                        */
+/****************************************************************/
 
     private static void printUsage(UsageType type) {
         StringBuilder sb = new StringBuilder();

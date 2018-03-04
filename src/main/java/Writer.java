@@ -30,9 +30,11 @@ public class Writer {
 
             toWrite = toWrite.replaceAll("TITLE", thread.getTitle());
             toWrite = toWrite.replaceAll("MESS" , df.format(thread.getTotalMessages()));
+            toWrite = toWrite.replaceAll("DAYS" , String.valueOf(thread.getDays()));
             toWrite = toWrite.replaceAll("WRDS" , df.format(thread.getWordCount()));
             toWrite = toWrite.replaceAll("WSPM" , String.format("%-2.2f", thread.getWordsPerMessage()));
             toWrite = toWrite.replaceAll("CHPM" , String.format("%-2.2f", thread.getCharsPerMessage()));
+            toWrite = toWrite.replaceAll("MSPD" , String.format("%-2.2f", thread.getMessagesPerDay()));
 
             StringBuilder sb = new StringBuilder(toWrite);
             String user1ToAdd = "['" + thread.getUser() + "', " + String.valueOf(messageMap.get(thread.getUser())) + "],\n";
@@ -69,9 +71,11 @@ public class Writer {
 
             toWrite = toWrite.replaceAll("TITLE", title);
             toWrite = toWrite.replaceAll("MESS" , df.format(thread.getTotalMessages()));
+            toWrite = toWrite.replaceAll("DAYS" , String.valueOf(thread.getDays()));
             toWrite = toWrite.replaceAll("WRDS" , df.format(thread.getWordCount()));
             toWrite = toWrite.replaceAll("WSPM" , String.format("%-2.2f", thread.getWordsPerMessage()));
             toWrite = toWrite.replaceAll("CHPM" , String.format("%-2.2f", thread.getCharsPerMessage()));
+            toWrite = toWrite.replaceAll("MSPD" , String.format("%-2.2f", thread.getMessagesPerDay()));
 
             StringBuilder sb = new StringBuilder(toWrite);
 
